@@ -160,9 +160,70 @@ a {
   background: linear-gradient(90deg, rgb(18 19 18 / 58%), rgb(18 19 18 / 27%) 58%, rgb(18 19 18 / 42%)), linear-gradient(0deg, rgb(18 19 18 / 52%), rgb(18 19 18 / 8%) 45%, rgb(18 19 18 / 28%));
 }
 
+.hero-hearts {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-heart {
+  position: absolute;
+  bottom: -2.5rem;
+  color: rgb(232 201 140 / 68%);
+  font-size: var(--heart-size);
+  line-height: 1;
+  opacity: 0;
+  text-shadow: 0 0 18px rgb(232 201 140 / 28%);
+  animation: heart-float var(--heart-duration) linear var(--heart-delay) infinite;
+}
+
+.hero-heart:nth-child(1) {
+  left: 8%;
+  --heart-size: 1.8rem;
+  --heart-duration: 12s;
+  --heart-delay: -3s;
+}
+
+.hero-heart:nth-child(2) {
+  left: 22%;
+  --heart-size: 1.1rem;
+  --heart-duration: 14s;
+  --heart-delay: -9s;
+}
+
+.hero-heart:nth-child(3) {
+  left: 36%;
+  --heart-size: 1.5rem;
+  --heart-duration: 13s;
+  --heart-delay: -6s;
+}
+
+.hero-heart:nth-child(4) {
+  left: 67%;
+  --heart-size: 1.3rem;
+  --heart-duration: 15s;
+  --heart-delay: -11s;
+}
+
+.hero-heart:nth-child(5) {
+  left: 81%;
+  --heart-size: 2rem;
+  --heart-duration: 12s;
+  --heart-delay: -7s;
+}
+
+.hero-heart:nth-child(6) {
+  left: 94%;
+  --heart-size: 1rem;
+  --heart-duration: 14s;
+  --heart-delay: -2s;
+}
+
 .hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   width: min(850px, 90%);
   padding: 7rem 0 5rem;
   text-align: center;
@@ -388,7 +449,7 @@ a {
 .venue-card h2 {
   margin: 0;
   font-family: var(--serif);
-  font-size: clamp(2.6rem, 6vw, 5rem);
+  font-size: clamp(2.6rem, 3vw, 5rem);
   font-weight: 400;
   letter-spacing: -.035em;
   line-height: 1.15;
@@ -411,7 +472,7 @@ a {
 .welcome-signature {
   color: var(--sage-dark);
   font-family: var(--serif);
-  font-size: 1.8rem;
+  font-size: 5rem;
   font-style: italic;
 }
 
@@ -423,7 +484,7 @@ a {
 .welcome-date {
   margin: .25rem 0 0;
   color: #8c887c;
-  font-size: .6rem;
+  font-size: 1.1rem;
   letter-spacing: .2em;
   text-transform: uppercase;
 }
@@ -533,7 +594,7 @@ a {
 .countdown-backdrop {
   position: absolute;
   inset: 0;
-  background: linear-gradient(rgb(40 48 36 / 55%), rgb(40 48 36 / 60%)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=2000&q=85') center 53% / cover;
+  background: linear-gradient(rgb(40 48 36 / 55%), rgb(40 48 36 / 60%)), url('./Image/Img1.jpeg') center 53% / cover;
 }
 
 .countdown-inner {
@@ -669,7 +730,7 @@ a {
 
 .event-info .eyebrow {
   margin-bottom: .1rem;
-  font-size: .55rem;
+  font-size: .40rem;
 }
 
 .event-info h3 {
@@ -683,6 +744,42 @@ a {
   margin: .1rem 0 0;
   color: var(--muted);
   font-size: .75rem;
+}
+
+.event-map {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  margin-top: .55rem;
+  color: var(--sage-dark);
+  font-size: .62rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-decoration-color: var(--gold);
+  text-underline-offset: .2em;
+  text-transform: uppercase;
+}
+
+.event-map-pin {
+  width: .9rem;
+  height: .9rem;
+  overflow: visible;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+  animation: location-bounce 2.4s ease-in-out infinite;
+}
+
+.event-map-pin circle {
+  fill: currentColor;
+  stroke: none;
+}
+
+.event-map:hover,
+.event-map:focus-visible {
+  color: var(--gold);
 }
 
 .event-time {
@@ -1197,6 +1294,37 @@ a {
 
   50% {
     transform: translateY(3px);
+  }
+}
+
+@keyframes heart-float {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) rotate(-12deg) scale(.8);
+  }
+
+  15% {
+    opacity: .58;
+  }
+
+  85% {
+    opacity: .38;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(34px, -110vh, 0) rotate(14deg) scale(1.15);
+  }
+}
+
+@keyframes location-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-3px);
   }
 }
 
