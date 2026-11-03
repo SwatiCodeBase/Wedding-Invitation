@@ -266,6 +266,27 @@ a {
   animation: bloom-center 1s 1.5s both;
 }
 
+.welcome-heart-animation {
+  position: relative;
+  display: grid;
+  width: 150px;
+  height: 112px;
+  margin: 0 auto 1.1rem;
+  place-items: center;
+}
+
+.welcome-heart-animation img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: multiply;
+}
+
+.welcome-heart-static {
+  display: none;
+}
+
 .eyebrow {
   margin: 0 0 .9rem;
   color: var(--gold);
@@ -311,6 +332,7 @@ a {
   font-size: clamp(1rem, 2vw, 1.25rem);
   letter-spacing: .03em;
   line-height: 1.8;
+  animation: name-reveal 1.8s 2s cubic-bezier(.2, .7, .2, 1) both;
 }
 
 .hero-date span {
@@ -921,6 +943,10 @@ a {
   object-fit: cover;
   filter: saturate(.8);
   transition: transform .6s cubic-bezier(.2, .7, .2, 1), filter .4s ease;
+}
+
+.gallery-portrait-focus img {
+  object-position: center top;
 }
 
 .gallery-item:hover img,
@@ -1717,5 +1743,17 @@ a {
   .reveal {
     opacity: 1;
     transform: none;
+  }
+
+  .welcome-heart-animation img {
+    visibility: hidden;
+  }
+
+  .welcome-heart-static {
+    display: grid;
+    height: 100%;
+    place-items: center;
+    color: #e6a14e;
+    font-size: 2.5rem;
   }
 }
