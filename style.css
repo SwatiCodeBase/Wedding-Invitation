@@ -1543,7 +1543,12 @@ a {
 
   .welcome-title,
   .section-heading h2 {
-    font-size: clamp(2.5rem, 11vw, 3.5rem);
+    font-size: clamp(2.5rem, 10vw, 3.5rem);
+  }
+
+  .welcome-signature {
+    font-size: clamp(2.5rem, 10vw, 3.5rem);
+    white-space: nowrap;
   }
 
   .story-grid {
